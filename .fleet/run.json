@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "command",
+            "name": "HTML Local Server",
+            "program": "python",
+            "workingDir": "",
+            "args": [
+                "-m",
+                "http.server"
+            ]
+        }
+    ]
+}
