@@ -4,9 +4,16 @@ html{
     background: linear-gradient(to right, #89fffd, #ef32d9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-body{
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 240s ease infinite;
     height: 100vh;
-    background-color: rgba(255,255,255,.7);
+}
+
+.bg{
+    height: 100vh;
+    background-color: rgba(255,255,255,.6);
 }
 
 .bg-alpha{
@@ -14,4 +21,16 @@ body{
 }
 .bg-alpha-disabled{
     background-color: rgba(155,155,155,.2);
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+	50% {
+        background-position: 100% 50%;
+    }
+	100% {
+        background-position: 0% 50%;
+    }
 }
