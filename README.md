@@ -3,6 +3,10 @@
 
 Um todo app simples e direto ao ponto.
 
+[Acesse o site](https://deyvidandrades.github.io/Checkie/)
+
+---
+
 # Tecnologias
 
 * JS
