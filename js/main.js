@@ -13,6 +13,13 @@ window.onload = (event) => {
     })
 }
 
+window.addEventListener('storage', function(event) {
+    if (event.storageArea === localStorage) {
+        carregarTarefas()
+        exibirTarefas()
+    }
+})
+
 function carregarTarefas(){
     let tarefas = JSON.parse(localStorage.getItem("lista_tarefas"))
     let ver_concluidas = JSON.parse(localStorage.getItem("info"))
