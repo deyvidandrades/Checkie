@@ -2,6 +2,7 @@ let lista_tarefas = []
 let ver_tarefas_concluidas = true
 
 window.onload = (event) => {
+    animarBG()
     carregarTarefas()
     exibirTarefas()
     
@@ -222,4 +223,70 @@ function esvaziarLixeira(){
     
     lista_tarefas = nova_lista
     salvarTarefas()
+}
+
+function randomColor() {
+    return '#' + Math.floor(Math.random()*16777215).toString(16);
+}
+
+function tetradicColors() {
+    let hex = randomColor()
+
+    if (hex.indexOf('#') === 0) {
+        hex = hex.slice(1);
+    }
+
+    // Convert hex to RGB
+    var r = parseInt(hex.slice(0, 2), 16);
+    var g = parseInt(hex.slice(2, 4), 16);
+    var b = parseInt(hex.slice(4, 6), 16);
+
+    // Calculate tetradic colors
+    var t1 = '#' + ((r + 128) % 255).toString(16).padStart(2, '0') +
+              ((g + 128) % 255).toString(16).padStart(2, '0') +
+              ((b + 128) % 255).toString(16).padStart(2, '0');
+    var t2 = '#' + ((r + 64) % 255).toString(16).padStart(2, '0') +
+              ((g + 64) % 255).toString(16).padStart(2, '0') +
+              ((b + 64) % 255).toString(16).padStart(2, '0');
+    var t3 = '#' + ((r + 192) % 255).toString(16).padStart(2, '0') +
+              ((g + 192) % 255).toString(16).padStart(2, '0') +
+              ((b + 192) % 255).toString(16).padStart(2, '0');
+
+    // Return an array containing the tetradic colors
+    return [`#${hex}`, t1, t2, t3];
+}
+
+function triadicColors() {
+    let hex = randomColor()
+
+    if (hex.indexOf('#') === 0) {
+        hex = hex.slice(1);
+    }
+
+    // Convert hex to RGB
+    var r = parseInt(hex.slice(0, 2), 16);
+    var g = parseInt(hex.slice(2, 4), 16);
+    var b = parseInt(hex.slice(4, 6), 16);
+
+    // Calculate triadic colors
+    var t1 = '#' + ((r + 85) % 255).toString(16).padStart(2, '0') +
+              ((g + 85) % 255).toString(16).padStart(2, '0') +
+              ((b + 85) % 255).toString(16).padStart(2, '0');
+    var t2 = '#' + ((r + 170) % 255).toString(16).padStart(2, '0') +
+              ((g + 170) % 255).toString(16).padStart(2, '0') +
+              ((b + 170) % 255).toString(16).padStart(2, '0');
+
+    // Return an array containing the triadic colors
+    return [`#${hex}`, t1, t2];
+}
+
+function animarBG() {
+    let colors = triadicColors()
+    //[randomColor(),randomColor(),randomColor()]
+    //tetradicColors()
+    var domBg = document.getElementById('background')
+
+    domBg.style.background = `linear-gradient(-45deg, ${colors.join(", ")})`
+    domBg.style.backgroundSize = "400% 400%"
+    domBg.style.animation = "gradient 120s linear infinite"
 }
